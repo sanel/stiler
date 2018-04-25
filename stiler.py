@@ -67,7 +67,8 @@ def initialize():
 
 
 def get_active_window():
-    return str(hex(int(commands.getoutput("xdotool getactivewindow 2>/dev/null").split()[0])))
+    # return str(hex(int(commands.getoutput("xdotool getactivewindow 2>/dev/null").split()[0])))
+    return commands.getoutput("xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2")
     
 
 def store(object,file):
